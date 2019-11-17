@@ -25,11 +25,12 @@ class Calculator{
 
             }else if(this.currentVal === '+' || this.currentVal === '-' || this.currentVal === '/' || this.currentVal === '*'){
                 this.state = 'start';
-                console.log('hey');
                 this.count++;
+
                 if(this.operand === ''){
                     this.operand = 0;
                 }
+
                 this.operand1 = parseFloat(this.operand);
                 this.operand = this.operand + this.liElem.innerHTML;
 
@@ -42,6 +43,7 @@ class Calculator{
 
                 
                 switch(this.currentVal){
+
                     case '+': this.currentOperator = 'addandsub';
                               break;
 
@@ -68,8 +70,6 @@ class Calculator{
                     this.reset();
                 }
                 this.operand = this.operand + this.liElem.innerHTML;
-                console.log(this.operand);
-                console.log(this.operand1);
 
                 this.screenElem.innerHTML = this.operand;
             }
@@ -81,7 +81,7 @@ class Calculator{
     performOperation(){
         this.count = 0;
         this.operand2 = this.operand.replace(this.operand1, '') ;
-        console.log(this.operand2);
+
         if(this.operand2[0] === '0'){
             this.operand2 = this.operand2.replace('0', '') ;
 
@@ -94,11 +94,10 @@ class Calculator{
             this.operand2 = this.operand2.replace('/', '') ;
 
         }
-        console.log(this.currentOperator);
                 
         switch(this.currentOperator){
 
-            case 'addandsub': console.log(parseFloat(this.operand1) + parseFloat(this.operand2));
+            case 'addandsub': 
                               if( isNaN(parseFloat(this.operand1) + parseFloat(this.operand2)) ){
                                       this.screenElem.innerHTML = 'ERROR, please click AC';
                               }else{
@@ -109,7 +108,7 @@ class Calculator{
                               this.state = 'final';
                               break;
 
-            case 'div': console.log(parseFloat(this.operand1) / parseFloat(this.operand2));
+            case 'div': 
                         if( isNaN(parseFloat(this.operand1) / parseFloat(this.operand2)) ){
                             this.screenElem.innerHTML = 'ERROR, please click AC';
                         }else{
@@ -120,7 +119,7 @@ class Calculator{
                         this.state = 'final';
                         break;
 
-            case 'mul': console.log(this.operand1 * parseFloat(this.operand2));
+            case 'mul': 
                         if( isNaN(parseFloat(this.operand1) * parseFloat(this.operand2)) ){
                             this.screenElem.innerHTML = 'ERROR, please click AC';
                         }else{
