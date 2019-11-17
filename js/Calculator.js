@@ -102,7 +102,7 @@ class Calculator{
                                       this.screenElem.innerHTML = 'ERROR, please click AC';
                               }else{
                                 this.screenElem.innerHTML = parseFloat(this.operand1) + parseFloat(this.operand2) + '';
-                            }
+                              }
 
                               this.operand = parseFloat(this.operand1) + parseFloat(this.operand2) + '';
                               this.state = 'final';
